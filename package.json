@@ -1,0 +1,25 @@
+{
+  "name": "kutenq-backend",
+  "version": "0.1.0",
+  "description": "Backend for kutenq",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.2",
+    "got": "^12.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --trace-warnings server.js dotenv_config_path=./.env.dev -e js",
+    "genErrors": "node ./tools/generateErrors.js",
+    "genErrorFile": "node ./tools/generateErrorList.js",
+    "genDenv": "node ./tools/generateDefaultDotEnv.js",
+    "genAll": "node ./tools/generateAllFilesAndDocs.js"
+  },
+  "type": "module",
+  "author": "Gabriel Chantayan",
+  "license": "ISC"
+}

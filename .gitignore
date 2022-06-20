@@ -1,0 +1,4 @@
+node_modules
+utils/misc/errors/errors.txt
+.env.dev
+~$*.xlsx
