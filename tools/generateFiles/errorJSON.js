@@ -42,6 +42,4 @@ async function generateErrors() {
 
 };
 
-generateErrors()
-
 export { generateErrors }

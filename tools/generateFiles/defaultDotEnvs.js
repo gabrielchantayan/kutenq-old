@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'fs/promises';
-import { parseTXT } from './parseTXT.js';
+import { parseTXT } from '../parseTXT.js';
 
 
 // Load generate errors
@@ -76,13 +76,4 @@ async function updateDevEnvs(){
 
 }
 
-
-function main(){
-    generateDotEnv();
-    updateDevEnvs();
-}
-
-main();
-
-
-export { main, generateDotEnv, updateDevEnvs}
+export { generateDotEnv, updateDevEnvs}

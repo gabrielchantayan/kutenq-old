@@ -1,0 +1,4 @@
+Routes					
+Controller	Name	Function	Params	Function req args	Description
+recipe	Get Recipe	getRecipe	recipeID		Gets a recipe by ID
+recipe	Parse Recipe	parseRecipe	type, data		Parses a recipe from data by type

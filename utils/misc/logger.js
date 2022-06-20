@@ -5,6 +5,7 @@ import 'dotenv/config'  // DotEnv
 // DotEnvs
 const doesLogPrefixes   =  denvTruthy(process.env.LOG_PREFIXES)
 const doesLogDebug      =  denvTruthy(process.env.LOG_DEBUG)
+const doesLogFS         =  denvTruthy(process.env.LOG_FS)
 const doesLogAxios      =  denvTruthy(process.env.LOG_AXIOS)
 
 // Convert dotenv to bool.

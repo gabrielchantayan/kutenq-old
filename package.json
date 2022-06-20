@@ -10,14 +10,16 @@
     "got": "^12.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "dev": "nodemon -r dotenv/config --trace-warnings server.js dotenv_config_path=./.env.dev -e js",
-    "genErrors": "node ./tools/generateErrors.js",
-    "genErrorFile": "node ./tools/generateErrorList.js",
-    "genDenv": "node ./tools/generateDefaultDotEnv.js",
-    "genAll": "node ./tools/generateAllFilesAndDocs.js"
+    "exportExcel": "node ./tools/convertExcelToTXT.js",
+    "genErrors": "node ./tools/generateFiles/generate.js errorJSON",
+    "genErrorList": "node ./tools/generateFiles/generate.js errorMD",
+    "genDenv": "node ./tools/generateFiles/generate.js dotEnvs",
+    "genAll": "node ./tools/generateFiles/generate.js all"
   },
   "type": "module",
   "author": "Gabriel Chantayan",

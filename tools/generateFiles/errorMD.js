@@ -1,10 +1,13 @@
 'use strict'
 
 import { readFile, writeFile } from 'fs/promises';
-import * as errors from '../utils/misc/errors/errors.json' assert { type: 'json' };
+import * as errors from '../../utils/misc/errors/errors.json' assert { type: 'json' };
+
+
 // Load generate errors
 async function generateErrorList() {
   
+    // Create the empty error file
     let errorFile = ""
 
     // Iterate through categories
@@ -30,7 +33,5 @@ async function generateErrorList() {
     await writeFile('./ERRORS.md', errorFile);
 
 };
-
-generateErrorList()
 
 export { generateErrorList }
