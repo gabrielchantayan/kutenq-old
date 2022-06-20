@@ -9,10 +9,10 @@ export function main(){
     dotEnv.updateDevEnvs();
 
     // Generate the errors JSON file
-    errorJSON.generateErrors();
+    await errorJSON.generateErrors();
 
     // Generate the errors doc file
-    errorMD.generateErrorList();
+    await errorMD.generateErrorList();
 }
 
 main();

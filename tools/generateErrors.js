@@ -38,7 +38,7 @@ async function generateErrors() {
 
     }
 
-    await writeFile('./utils/misc/errors.json', JSON.stringify(errors, null, 4));
+    await writeFile('./utils/misc/errors/errors.json', JSON.stringify(errors, null, 4));
 
 };
 

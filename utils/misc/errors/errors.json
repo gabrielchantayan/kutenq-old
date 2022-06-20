@@ -27,7 +27,24 @@
             "name": "Unknown type of recipe to parse",
             "notes": "Check that you are specifying a valid recipe type in `/api/recipe/parseRecipe`.",
             "keywords": [
-                ""
+                "\"type",
+                "recipetype\""
+            ]
+        }
+    },
+    "axios": {
+        "1": {
+            "name": "Connection Refused",
+            "notes": "Connection refused by server.",
+            "keywords": [
+                "ECONNREFUSED"
+            ]
+        },
+        "2": {
+            "name": "Link not found",
+            "notes": "\"Either the link was invalid, or the server was down.\"",
+            "keywords": [
+                "ENOTFOUND"
             ]
         }
     },
