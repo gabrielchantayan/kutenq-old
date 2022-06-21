@@ -39,13 +39,6 @@
             "keywords": [
                 "ECONNREFUSED"
             ]
-        },
-        "2": {
-            "name": "Link not found",
-            "notes": "\"Either the link was invalid, or the server was down.\"",
-            "keywords": [
-                "ENOTFOUND"
-            ]
         }
     },
     "": {

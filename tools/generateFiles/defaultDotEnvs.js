@@ -1,11 +1,11 @@
 import { readFile, writeFile } from 'fs/promises';
-import { parseTXT } from '../parseTXT.js';
+import { toArray } from '../parseTXT.js';
 
 
 // Load generate errors
 async function generateDotEnv() {
 
-    let input = await parseTXT('./tools/excel/dotenvs.txt')
+    let input = await toArray('./tools/excel/dotenvs.txt')
 
     let denv = ""
 
@@ -33,7 +33,7 @@ async function generateDotEnv() {
 
 async function updateDevEnvs(){
 
-    const input = await parseTXT('./tools/excel/dotenvs.txt')
+    const input = await toArray('./tools/excel/dotenvs.txt')
     const currentdevenv = await readFile('./.env.dev', 'utf8')
 
     let splitDevEnv = currentdevenv.split('\n');

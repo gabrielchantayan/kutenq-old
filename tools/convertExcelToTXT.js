@@ -17,19 +17,25 @@ async function writeSheet(sheet, name, path='./tools/excel/'){
 }
 
 // Main function
-async function main(dFileToRead = './tools/excel/Misc.xlsx', dSTP = 'all', dPath = './tools/excel/'){
+async function main(dFileToRead = './tools/excel/Misc.xlsx', dSTP = 'all', dPath = './tools/excel/', dSaveName = undefined, listenToArgs = true){
     
-    // Get the file to read from the CMD line args, if none exists then default to the function
-    let fileToRead = (process.argv[2] === undefined) ? dFileToRead : process.argv[2]
+    let fileToRead, sheetToProcess, path
 
-    // Get the sheet to read from the CMD line args, if none exists then default to the function
-    let sheetToProcess = (process.argv[3] === undefined) ? dSTP : process.argv[3]
+    if (listenToArgs){
+        // Get the file to read from the CMD line args, if none exists then default to the function
+        fileToRead = (process.argv[2] === undefined) ? dFileToRead : process.argv[2]
+
+        // Get the sheet to read from the CMD line args, if none exists then default to the function
+        sheetToProcess = (process.argv[3] === undefined) ? dSTP : process.argv[3]
+        
+        // Get the path to save to the CMD line args, if none exists then default to the function
+        path = (process.argv[4] === undefined) ? dPath : process.argv[4]
+    } else {
+        fileToRead = `${dFileToRead}`;
+        sheetToProcess = dSTP;
+        path = `${dPath}`;
+    }
     
-    // Get the path to save to the CMD line args, if none exists then default to the function
-    let path = (process.argv[4] === undefined) ? dPath : process.argv[4]
-
-
-
     // Read excel workbook
     var workbook = XLSX.readFile(fileToRead);
 
@@ -43,10 +49,13 @@ async function main(dFileToRead = './tools/excel/Misc.xlsx', dSTP = 'all', dPath
     } 
     // If processing a single sheet, then write the sheet
     else {
-        await writeSheet(workbook.Sheets[sheetToProcess], sheetToProcess, path)
+
+        let name = (dSaveName === undefined) ? sheetToProcess : dSaveName
+
+        await writeSheet(workbook.Sheets[sheetToProcess], name, path)
     }
 }
 
-main();
+main({listenToArgs: true});
 
 export { main }
