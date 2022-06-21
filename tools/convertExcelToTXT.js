@@ -16,6 +16,11 @@ async function writeSheet(sheet, name, path='./tools/excel/'){
     await writeFile(`${path}${name}.txt`, txt);
 }
 
+// put this in some kinda wrapper function
+// for when called from npm run
+// bc this is such bs
+
+
 // Main function
 async function main(dFileToRead = './tools/excel/Misc.xlsx', dSTP = 'all', dPath = './tools/excel/', dSaveName = undefined, listenToArgs = true){
     
