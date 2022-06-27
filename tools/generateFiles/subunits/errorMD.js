@@ -1,7 +1,9 @@
 'use strict'
 
 import { readFile, writeFile } from 'fs/promises';
-import * as errors from '../../utils/misc/errors/errors.json' assert { type: 'json' };
+import * as errors from '../../../utils/misc/errors/errors.json' assert { type: 'json' };
+import { writeDocFile } from '../../docs/writeDoc.js';
+ 
 
 
 // Load generate errors
@@ -14,23 +16,25 @@ async function generateErrorList() {
     for (const [cat, errorList] of Object.entries(errors['default'])) {
 
         // Add key to error file text
-        errorFile += `### ${cat.toUpperCase()}`
+        errorFile += `\n\n# ${cat.toUpperCase()}`
 
         // Iterate through errors
         for (const [id, error] of Object.entries(errorList)) {
 
-            errorFile += `\n\n\`${cat}.${id}\`  ${error.name}\n\n`
+            errorFile += `\n\n\`### ${cat}.${id}\`  ${error.name}\n\n`
             errorFile += `**NOTES:** ${error.notes}\n\n`
             
             if (error.keywords != undefined && error.keywords[0] != ""){
                 errorFile += `**KEYWORDS:** ${error.keywords.join(', ')}\n\n`
             }
 
+            errorFile += '---\n'
+
         }
 
     }
 
-    await writeFile('./ERRORS.md', errorFile);
+    await writeDocFile('Errors', errorFile);
 
 };
 

@@ -7,7 +7,8 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "express": "^4.17.2",
-    "got": "^12.0.1"
+    "got": "^12.0.1",
+    "node-html-parser": "^5.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.16",
@@ -16,9 +17,10 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config --trace-warnings server.js dotenv_config_path=./.env.dev -e js",
     "exportExcel": "node ./tools/convertExcelToTXT.js",
-    "genErrors": "node ./tools/generateFiles/generate.js errorJSON",
-    "genErrorList": "node ./tools/generateFiles/generate.js errorMD",
-    "genDenv": "node ./tools/generateFiles/generate.js dotEnvs",
+    "genErrorJSON": "node ./tools/generateFiles/generate.js errorJSON",
+    "genErrorMD": "node ./tools/generateFiles/generate.js errorMD",
+    "genDotEnvs": "node ./tools/generateFiles/generate.js dotEnvs",
+    "genRoutes": "node ./tools/generateFiles/generate.js routes",
     "genAll": "node ./tools/generateFiles/generate.js all"
   },
   "type": "module",

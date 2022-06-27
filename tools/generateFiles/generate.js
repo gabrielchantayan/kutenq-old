@@ -1,7 +1,62 @@
-import * as dotEnvs from './defaultDotEnvs.js';
-import * as errorJSON from './errorJSON.js';
-import * as errorMD from './errorMD.js';
-import * as excelTXT from '../convertExcelToTXT.js';
+import * as dotEnvs from './subunits/defaultDotEnvs.js';
+import * as errorJSON from './subunits/errorJSON.js';
+import * as errorMD from './subunits/errorMD.js';
+import * as routers from './subunits/routers.js';
+import * as excelTXT from '../excel/convertExcelToTXT.js';
+
+
+const handler = {
+    convertExcel : async function(){
+        console.log('Extracting Excel data...')
+
+        // dotenvs and routes
+        await excelTXT.main({
+            'file' : './tools/excel/Misc.xlsx',
+            'sheets' : 'all',
+            'savePath' : './tools/excel/outputs/',
+            'saveName' : undefined
+        }, false);
+
+        // errors
+        await excelTXT.main({
+            'file' : './utils/misc/errors/errors.xlsx',
+            'sheets' : 'Combined',
+            'savePath' : './utils/misc/errors/',
+            'saveName' : 'errors'
+        }, false)
+    },
+
+    errorJSON : async function() {
+        console.log('Generating Errors...')
+        errorJSON.generateErrors();
+    },
+
+    errorMD : async function(){
+        console.log('Generating ERRORS.md...')
+        errorMD.generateErrorList();
+    },
+
+    dotEnvs : function (){
+        console.log('Generating .env...')
+        dotEnvs.generateDotEnv();
+        console.log('Updating .env.dev...')
+        dotEnvs.updateDevEnvs();
+    },
+
+    routes : async function(){
+        console.log('Converting Excel')
+        await excelTXT.main({
+            'file' : './tools/excel/Misc.xlsx',
+            'sheets' : 'routes',
+            'savePath' : './tools/excel/outputs/',
+            'saveName' : 'routes'
+        }, false);
+
+        console.log('Generating routes files and folders...')
+        await routers.generateRoutes();
+    },
+}
+
 
 
 export async function main(){
@@ -11,54 +66,32 @@ export async function main(){
     switch (func){
 
         case "errorJSON":
-            console.log('Generating Errors...')
-            errorJSON.generateErrors();
+            handler.errorJSON()
             break;
         
         case "errorMD":
-            console.log('Generating ERRORS.md...')
-            errorMD.generateErrorList();
+            handler.errorMD();
             break;
 
         case "dotEnvs":
-            console.log('Generating .env...')
-            dotEnvs.generateDotEnv();
-            console.log('Updating .env.dev...')
-            dotEnvs.updateDevEnvs();
+            handler.dotEnvs();
+            break;
+
+        case "routes":
+            await handler.routes();
             break;
 
         case "all":
-            await generateTXTs();
-            
-            console.log('Generating Errors...')
-            await errorJSON.generateErrors();
-
-            console.log('Generating ERRORS.md...')
-            await errorMD.generateErrorList();
-
-            console.log('Generating .env...')
-            dotEnvs.generateDotEnv();
-            console.log('Updating .env.dev...')
-            dotEnvs.updateDevEnvs();
-
+            handler.convertExcel()
+            .then(handler.errorJSON())
+            .then(handler.errorMD())
+            .then(handler.dotEnvs)
             break;
 
         default:
             console.log('Unknown function. Check \'tools/generateFiles/generate.js\' for more info')
             break;
     }
-}
-
-
-async function generateTXTs(){
-    console.log('Extracting Excel data...')
-
-    // dotenvs and routes
-    await excelTXT.main('./tools/excel/Misc.xlsx', 'all', './tools/excel/');
-
-    // errors
-    await excelTXT.main('./utils/misc/errors/errors.xlsx', 'Combined', './misc/errors/', 'errors.txt');
-
 }
 
 main();

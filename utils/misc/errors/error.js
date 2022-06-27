@@ -58,6 +58,9 @@ function parseError(id, size="full"){
 
 function checkIfErrorExists(id){
     id = id.split('.')
+
+    console.log(errors[id[0]])
+
     if (errors.hasOwnProperty(id[0]) && errors[id[0]].hasOwnProperty(id[1])) return true;
 
     return false;

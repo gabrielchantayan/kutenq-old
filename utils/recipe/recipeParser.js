@@ -1,9 +1,9 @@
-import * as axiosWrapper from '../axios/axiosWrapper.js';
+import * as webTools from '../web/webTools.js';
 
 
 async function url (url) {
     
-    const data = await axiosWrapper.getWebpage(url)
+    const data = await webTools.getWebpage(url)
 
     return data;
 

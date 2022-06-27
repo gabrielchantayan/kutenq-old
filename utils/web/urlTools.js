@@ -1,6 +1,3 @@
-import axios from "axios";
-import { logAxios, axiosStatus } from '../misc/logger.js';
-
 // REGEX EXPLAINED
 // ^ — start of string
 // (http) — test for string "http"
@@ -21,19 +18,9 @@ function testAndFixURL(url){
     return (testIfURL(url) ? url : `http://${url}`)
 }
 
-// Get website
-async function getWebpage(page) {
 
-    let parsedURL = testAndFixURL(page)    
-
-    const res = await axios.get(parsedURL);
-
-    axiosStatus(parsedURL, res.status);
-
-    return res.data;
-}
 
 // Get printable version of page
 
 
-export { getWebpage }
+export { testIfURL, testAndFixURL }

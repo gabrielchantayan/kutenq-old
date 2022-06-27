@@ -1,0 +1,3 @@
+[submodule "kutenq-backend.wiki"]
+	path = kutenq-backend.wiki
+	url = https://github.com/gabrielchantayan/kutenq-backend.wiki.git

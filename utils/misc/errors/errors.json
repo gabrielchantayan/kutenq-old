@@ -1,22 +1,31 @@
 {
+    "\"ID\"": {
+        "undefined": {
+            "name": "Name",
+            "notes": "Notes",
+            "keywords": [
+                "Keywords"
+            ]
+        }
+    },
     "general": {
         "0": {
-            "name": "Unknown error",
-            "notes": "Unable to determine what went wrong. You should not be getting this error.",
+            "name": "Unknown error",
+            "notes": "Unable to determine what went wrong. You should not be getting this error.",
             "keywords": [
                 ""
             ]
         },
         "-2": {
-            "name": "Error file does not exist",
-            "notes": "The error file does not exist or could not be found",
+            "name": "Error file does not exist",
+            "notes": "The error file does not exist or could not be found",
             "keywords": [
                 ""
             ]
         },
         "-1": {
-            "name": "Unknown error code",
-            "notes": "Check that you are throwing a valid error code. lol.",
+            "name": "Unknown error code",
+            "notes": "Check that you are throwing a valid error code. lol.",
             "keywords": [
                 ""
             ]
@@ -24,11 +33,11 @@
     },
     "recipe": {
         "1": {
-            "name": "Unknown type of recipe to parse",
-            "notes": "Check that you are specifying a valid recipe type in `/api/recipe/parseRecipe`.",
+            "name": "Unknown type of recipe to parse",
+            "notes": "Check that you are specifying a valid recipe type in `/api/recipe/parseRecipe`.",
             "keywords": [
-                "\"type",
-                "recipetype\""
+                "type",
+                "recipetype"
             ]
         }
     },
@@ -39,11 +48,13 @@
             "keywords": [
                 "ECONNREFUSED"
             ]
-        }
-    },
-    "": {
-        "undefined": {
-            "keywords": []
+        },
+        "2": {
+            "name": "Link not found",
+            "notes": "Either the link was invalid, or the server was down.",
+            "keywords": [
+                "ENOTFOUND"
+            ]
         }
     }
 }

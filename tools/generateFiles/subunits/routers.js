@@ -8,68 +8,73 @@ const router = Router();`
 
 
 import { readFile, writeFile } from 'fs/promises';
-import { toArray } from '../parseTXT.js';
-import { checkAndCreateDir } from '../../utils/files/fileExists.js'
-    
+import { toArray } from '../../excel/parseTXT.js';
+import { checkAndCreateDir } from '../../../utils/files/fileExists.js'
+import { toJSON } from '../../excel/parseTXT.js'
+
+let map = `{
+    "{Controller}" : {
+        "{Function}" : {
+            "name" : "{Name}",
+            "desc" : "{Description}",
+            "method" : "{Method}",
+            "function" : "{Function}",
+            "params" : "{Params}",
+            "reqArgs" : "{Function req args}"
+        }
+    }
+}`
 
 // Generate routes
 async function generateRoutes() {
 
     // Grab routes files
-    let routesFile = await toArray('./tools/excel/routes.txt')
+    let routesFile = await toArray('./tools/excel/outputs/routes.txt');
 
-    // Empty controller array and list of controllers
-    let controllers = {}
+
     let contrList = []
 
     // index.js text
     let indexTxt = ''
 
-    // Iterate through routes
-    for (let i = 1; i < routesFile.length; i++) {
+    // Documentation text
+    let md = '# API Documentation'
 
-        // Shorthanding
-        let r = routesFile[i];
+    const controllers = await toJSON('./tools/excel/outputs/routes.txt', map)
 
-        // Check if category has already been added, if not then add it
-        if (!controllers.hasOwnProperty(r[0].toLowerCase())){
-            controllers[r[0]] = {}
-        }
+    console.log(typeof(controllers))
 
-        // Add info to the controllers
-        // r[0] is the route (i.e. recipe)
-        // r[2] is the function (i.e. getRecipe)
-        controllers[r[0]][r[2]] = {
-            'name' : r[1],
-            'params' : r[3],
-            'reqArgs' : r[4],
-            'desc' : r[5]
-        }
-
-    }
+    await writeFile(`./routes/routes.json`, JSON.stringify(controllers, null, 4));
     
     // Iterate through controllers, grabbing controller name (contr) and data (contrData)
     for (const [contr, contrData] of Object.entries(controllers)){ 
 
-        // Add controller to index.js, and push to the controller list
+        // Add controller to documentation and index.js
         indexTxt += `import ${contr} from './${contr}.js';\n`;
+        md += `\n\n${contr.toUpperCase()}`
+
+        // Mark the controller as already added
         contrList.push(contr);
 
         // Initialize route text
         let text = 
-        `${header}
-        \nimport ${contr} from '../controllers/${contr}/index.js';`;
+`${header}
+\nimport ${contr} from '../controllers/${contr}/index.js';`;
 
 
         // Iterate through the controller data, grabbing the route and route data
         for (const [route, routeData] of Object.entries(contrData)) {
             
+            // Add to documentation
+            md += `\n##${routeData['name']}`
+
+
             // Add to route text
             text += 
-            `\n\n// ${routeData['desc']}
-            router.get('/${route}${makePaths(routeData['params'])}', (req, res) => {
-                return recipe.${route}(${makeParams(routeData['reqArgs'])}, res)
-            });`
+`\n\n// ${routeData['desc']}
+router.get('/${route}${makePaths(routeData['params'])}', (req, res) => {
+    return recipe.${route}(${makeParams(routeData['reqArgs'])}, res)
+});`
 
         }
 
@@ -81,13 +86,13 @@ async function generateRoutes() {
         
     }
     
-    // Add the export defaults to index.js
-    indexTxt += 
-    `\nexport default {
-        ${contrList.join(',\n')}
-    }`
+        // Add the export defaults to index.js
+        indexTxt += 
+`\nexport default {
+    ${contrList.join(',\n')}
+}`
 
-    // Write the file
+    // Write the index file
     await writeFile('./routes/index.js', indexTxt);
 
 };
@@ -146,4 +151,15 @@ function makeParams(params){
 }
 
 
+function document(route, routeData){
+    let md =    `\n##${routeData['name']}` +
+                `\n\n${routeData['desc']}` + 
+                `\n\n**URL:** \`/api/${route}${makePaths(routeData['params'])}\`` +
+                `\n\n**Method:** ${routeData['method']}`
+
+    
+}
+
 generateRoutes();
+
+export { generateRoutes }

@@ -15,10 +15,13 @@ async function generateErrors() {
     let errors = {}
 
     // Iterate through data
-    for (let i = 1; i < dataArray.length; i++) {
+    for (let i = 0; i < dataArray.length; i++) {
 
         // Holding variable, split data by tabs
         let cash = dataArray[i].split('\t');
+
+        // Validation
+        if (cash[0] == "ID" || cash[0] == "") continue;
 
         // Check if errors has category,
         // If not then create it

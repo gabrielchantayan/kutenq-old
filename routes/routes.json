@@ -1,0 +1,20 @@
+{
+    "recipe": {
+        "getRecipe": {
+            "name": "Get Recipe",
+            "desc": "Gets a recipe by ID",
+            "method": "GET",
+            "function": "getRecipe",
+            "params": "recipeID",
+            "reqArgs": ""
+        },
+        "parseRecipe": {
+            "name": "Parse Recipe",
+            "desc": "Parses a recipe from data by type",
+            "method": "GET",
+            "function": "parseRecipe",
+            "params": "type, data*",
+            "reqArgs": ""
+        }
+    }
+}
