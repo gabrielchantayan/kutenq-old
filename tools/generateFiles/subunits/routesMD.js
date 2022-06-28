@@ -27,7 +27,7 @@ async function generateRouteMD() {
             routeFile += `**TEMPLATE:**\n\n`
             routeFile += `\`\`\`${route.method} /api/${cat}/${id}/${route.params.split(', ').join('/')}\`\`\``
 
-            routeFile += '---\n'
+            routeFile += '\n\n---\n'
 
         }
 
