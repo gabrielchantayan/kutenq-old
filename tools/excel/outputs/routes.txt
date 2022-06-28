@@ -2,3 +2,4 @@ Routes
 Controller	Name	Function	Params	Function req args	Description	Method
 recipe	Get Recipe	getRecipe	recipeID		Gets a recipe by ID	GET
 recipe	Parse Recipe	parseRecipe	type, data*		Parses a recipe from data by type	GET
+recipe	Gets LD JSON	getLDJSONfromURL	url*		Gets LD JSON from a url	

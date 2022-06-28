@@ -13,4 +13,9 @@ router.get('/parseRecipe/:type/:data*', (req, res) => {
     return recipe.parseRecipe(req.params, res)
 });
 
+// Gets LD JSON from a url
+router.get('/getLDJSONfromURL/:url*', (req, res) => {
+    return recipe.getLDJSONfromURL(req.params, res)
+});
+
 export default router;

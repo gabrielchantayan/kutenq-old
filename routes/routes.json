@@ -15,6 +15,14 @@
             "function": "parseRecipe",
             "params": "type, data*",
             "reqArgs": ""
+        },
+        "getLDJSONfromURL": {
+            "name": "Gets LD JSON",
+            "desc": "Gets LD JSON from a url",
+            "method": "",
+            "function": "getLDJSONfromURL",
+            "params": "url*",
+            "reqArgs": ""
         }
     }
 }

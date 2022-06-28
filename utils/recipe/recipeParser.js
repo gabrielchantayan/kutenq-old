@@ -11,4 +11,12 @@ async function url (url) {
 
 }
 
-export { url }
+async function ldjson (url) {
+    
+    const data = await webTools.getSchemas(url)
+
+    return data;
+
+}
+
+export { url, ldjson }

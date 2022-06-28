@@ -124,7 +124,7 @@ export async function main(){
             handler.convertExcel()
             .then(handler.errorJSON())
             .then(handler.errorMD())
-            .then(handler.dotEnvs.generate())
+            .then(handler.dotEnvs())
             .then(handler.routes.generate())
             // .then(handler.localizedRegex.generate())
             break;

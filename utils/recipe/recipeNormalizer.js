@@ -72,6 +72,17 @@ function ldjson(ld){
             // Check for the recipe cuisine
             checkAndAdd(section, "recipeCuisine")
 
+            if (section.hasOwnProperty("recipeYield")) recipe['yeild'] = section['recipeYield'][0]
+
+
+            checkAndAdd(section, "performTime")
+            checkAndAdd(section, "prepTime")
+            checkAndAdd(section, "totalTime")
+            checkAndAdd(section, "nutrition")
+            checkAndAdd(section, "suitableForDiet")
+
+
+
 
             // Check if the section has ingredients
             if (section.hasOwnProperty("recipeIngredient")) {

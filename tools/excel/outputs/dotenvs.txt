@@ -4,3 +4,5 @@ Logging	log_prefix	When using logger, log custom prefixes	TRUE
 Logging	log_debug	Log general debug messages	FALSE
 Logging	log_axios	Log any web request-related messages	FALSE
 Logging	log_fs	Logs any file-system related inquiries	FALSE
+Database	mongo_host	MongoDB host	mongodb://localhost:27017
+Database	mongo_database	MongoDB database	kutenq
