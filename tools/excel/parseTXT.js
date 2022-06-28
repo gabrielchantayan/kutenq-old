@@ -93,8 +93,8 @@ function generateJSON(rawValues, map){
 
 
 
-// Load generate errors
-async function toJSON(filePath, structure) {
+// Convert to JSON
+async function fileToJSON(filePath, structure) {
 
     // Read the file
     const rawData = await readFile(filePath, 'utf8')
@@ -141,8 +141,44 @@ async function toJSON(filePath, structure) {
 };
 
 
+
+function mapToJSON(txt, map){  
+    // Create empty array for titled data
+    let titledData = []
+
+    let headers = 
+    txt.find(element => {
+        return isValid(element);
+    });
+    
+    // Iterate through data
+    for (let i = 0; i < txt.length; i++) {
+        // Check if line has more than one entry and has data
+        if(isValid(txt[i]) && txt[i] != headers){     
+
+            titledData[i] = {}
+
+            txt[i].forEach((data, index) => {
+                titledData[i][headers[index]] = data
+            });
+        }
+    }
+
+    // Messy array
+    let messyArray = []
+    let cleanArray = {}
+
+    titledData.forEach((i) => {
+        cleanArray = deepMerge(cleanArray, generateJSON(i, structure))
+    })
+
+    return cleanArray
+}
+
+
+
 function isValid(element){
     return (element.length > 1 && element.slice(1).join('') != "")
 }
 
-export { toArray, toJSON }
+export { toArray, fileToJSON, mapToJSON }

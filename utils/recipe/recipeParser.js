@@ -1,11 +1,13 @@
 import * as webTools from '../web/webTools.js';
-
+import * as recipeNormalizer from './recipeNormalizer.js'
 
 async function url (url) {
     
-    const data = await webTools.getWebpage(url)
+    const data = await webTools.getSchemas(url)
 
-    return data;
+    const normalizedRecipe = recipeNormalizer.ldjson(data)
+
+    return normalizedRecipe;
 
 }
 

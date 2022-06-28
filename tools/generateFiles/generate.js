@@ -3,6 +3,7 @@ import * as errorJSON from './subunits/errorJSON.js';
 import * as errorMD from './subunits/errorMD.js';
 import * as routers from './subunits/routers.js';
 import * as excelTXT from '../excel/convertExcelToTXT.js';
+import * as localizedRegex from './subunits/localizedRegex.js';
 
 
 const handler = {
@@ -43,18 +44,52 @@ const handler = {
         dotEnvs.updateDevEnvs();
     },
 
-    routes : async function(){
-        console.log('Converting Excel')
-        await excelTXT.main({
-            'file' : './tools/excel/Misc.xlsx',
-            'sheets' : 'routes',
-            'savePath' : './tools/excel/outputs/',
-            'saveName' : 'routes'
-        }, false);
+    routes : {
 
-        console.log('Generating routes files and folders...')
-        await routers.generateRoutes();
+        main: async function(){
+            await this.convert();
+            await this.generate();
+        },
+        
+        convert : async function(){
+            console.log('Converting Excel')
+            await excelTXT.main({
+                'file' : './tools/excel/Misc.xlsx',
+                'sheets' : 'routes',
+                'savePath' : './tools/excel/outputs/',
+                'saveName' : 'routes'
+            }, false)
+        },
+
+        generate : async function (){
+            console.log('Generating routes files and folders...')
+            await routers.generateRoutes();
+        }
     },
+
+    localizedRegex : {
+
+        main: async function(){
+            await this.convert();
+            await this.generate();
+        },
+        
+        convert : async function(){
+            console.log('Converting Regex')
+            await excelTXT.main({
+                'file' : './tools/excel/Misc.xlsx',
+                'sheets' : 'localizedRegex',
+                'savePath' : './tools/excel/outputs/',
+                'saveName' : 'localizedRegex'
+            }, false)
+        },
+
+        generate : async function (){
+            console.log('Generating localized regex tests...')
+            await localizedRegex.generateRegex();
+        }
+    }
+        
 }
 
 
@@ -78,14 +113,20 @@ export async function main(){
             break;
 
         case "routes":
-            await handler.routes();
+            await handler.routes.main();
+            break;
+
+        case "localizedRegex":
+            await handler.localizedRegex.main();
             break;
 
         case "all":
             handler.convertExcel()
             .then(handler.errorJSON())
             .then(handler.errorMD())
-            .then(handler.dotEnvs)
+            .then(handler.dotEnvs.generate())
+            .then(handler.routes.generate())
+            // .then(handler.localizedRegex.generate())
             break;
 
         default:

@@ -1,0 +1,4 @@
+Localized Regex						
+Locale	Reigon	Category	Name	Value	Type	Description
+en		Recipe Parsing	aOfRegex	"/^(?:""?a\s?)(.*)(?:\sof)/i"	regex	"Regex for testing food. Tests ""A ### of"" and captures ###"
+en		Recipe Parsing	noteRegex	/(?:\()(.*)(?:\))|;\s/	regex	Regex for capturing notes. Tests (###) or ;###

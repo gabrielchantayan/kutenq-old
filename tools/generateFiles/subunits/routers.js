@@ -10,7 +10,7 @@ const router = Router();`
 import { readFile, writeFile } from 'fs/promises';
 import { toArray } from '../../excel/parseTXT.js';
 import { checkAndCreateDir } from '../../../utils/files/fileExists.js'
-import { toJSON } from '../../excel/parseTXT.js'
+import { fileToJSON } from '../../excel/parseTXT.js'
 
 let map = `{
     "{Controller}" : {
@@ -40,7 +40,7 @@ async function generateRoutes() {
     // Documentation text
     let md = '# API Documentation'
 
-    const controllers = await toJSON('./tools/excel/outputs/routes.txt', map)
+    const controllers = await fileToJSON('./tools/excel/outputs/routes.txt', map)
 
     console.log(typeof(controllers))
 

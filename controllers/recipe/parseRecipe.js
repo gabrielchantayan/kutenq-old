@@ -13,8 +13,9 @@ const parseRecipe = asyncWrapper(async (req, res) => {
 
         // If we are parsing a URL,
         case "url":
+
             // Call the URL function of recipeParser
-            recipeJSON = await recipeParser.url(req.data)
+            recipeJSON = await recipeParser.url(`${req.data}${req[0]}`)
             break;
 
         // If the type is unknown,

@@ -1,0 +1,47 @@
+{
+    "version" : 1,
+    "isTranslateable" : false,
+    "source" : {
+        "type" : "url",
+        "link" : "thespiceadventuress.com/2015/12/10/slow-cooked-lamb-curry/"
+    },
+    "name" : "Gosht Durbari",
+    "author" : "Dhanya Samuel",
+    "keywords" : [
+        "Curry",
+        "fried onions",
+        "gosht",
+        "gosht durbari",
+        "Indian cuisine",
+        "lamb",
+        "lamb curry",
+        "mutton",
+        "north indian food",
+        "spices",
+        "winter warmer"
+    ],
+    "ingredients" : [
+        {
+            "amount" : "1",
+            "unit" : "kg",
+            "item" : "lamb",
+            "notes" : "on the bone; cut in to medium-sized pieces"
+        },
+        {
+            "amount" : "1",
+            "unit" : "cup",
+            "item" : "thick plain yoghurt/curd"
+        },
+        {
+            "amount" : "3-4",
+            "unit" : "tbsp",
+            "item" : "ghee/clarified butter"
+        },
+        {
+            "amount" : "1 ½",
+            "unit" : "inch",
+            "item" : "ginger",
+            "notes" : "julienned"
+        }
+    ]
+}

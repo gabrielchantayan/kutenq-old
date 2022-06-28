@@ -5,10 +5,12 @@
   "main": "server.js",
   "dependencies": {
     "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.0.1",
     "express": "^4.17.2",
     "got": "^12.0.1",
-    "node-html-parser": "^5.3.3"
+    "mongodb": "^4.7.0",
+    "node-fetch": "^3.2.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.16",
@@ -21,6 +23,7 @@
     "genErrorMD": "node ./tools/generateFiles/generate.js errorMD",
     "genDotEnvs": "node ./tools/generateFiles/generate.js dotEnvs",
     "genRoutes": "node ./tools/generateFiles/generate.js routes",
+    "genRegex": "node ./tools/generateFiles/generate.js localizedRegex",
     "genAll": "node ./tools/generateFiles/generate.js all"
   },
   "type": "module",
