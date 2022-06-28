@@ -1,6 +1,7 @@
 import * as dotEnvs from './subunits/defaultDotEnvs.js';
 import * as errorJSON from './subunits/errorJSON.js';
 import * as errorMD from './subunits/errorMD.js';
+import * as routesMD from './subunits/routesMD.js';
 import * as routers from './subunits/routers.js';
 import * as excelTXT from '../excel/convertExcelToTXT.js';
 import * as localizedRegex from './subunits/localizedRegex.js';
@@ -64,6 +65,9 @@ const handler = {
         generate : async function (){
             console.log('Generating routes files and folders...')
             await routers.generateRoutes();
+
+            console.log('Generating route DOCs')
+            await routesMD.generateRouteMD();
         }
     },
 
