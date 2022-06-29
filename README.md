@@ -1,15 +1,5 @@
-# kutenq backend
-The backend server for **kutenq**, written in Node.JS with Express
+![kutenq logo](https://raw.githubusercontent.com/gabrielchantayan/kutenq-frontend/main/kutenq/kutenq-en.png)
 
-### API Usage
-#### Recipes
-**Recipe Parsing**
+The backend server for [**kutenq!**](https://github.com/gabrielchantayan/kutenq-frontend), written in Node.JS with Express
 
-`/api/recipe/parseRecipe/url/:url` Get and parse a recipe from a URL
-
-### Errors
-If an error occurs, you can check the meaning in `ERRORS.md`
-
-To export a new `errors.json` file, open up `errors.xlsx`, then export the first sheet as a tab-delimited text file (`.txt`). Run `npm run genErrors`.
-
-To export a new `ERRORS.md` file, run `npm run genErrorFile`.
+[Click here to view the wiki](https://github.com/gabrielchantayan/kutenq-backend/wiki)

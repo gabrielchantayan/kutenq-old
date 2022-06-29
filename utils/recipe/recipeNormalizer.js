@@ -8,10 +8,9 @@ const numberRegex = /(\d\/?\d?[-\/\s]\d?\/?\d?)/
 const aOfRegex = /^(?:"?a\s?)(.*)(?:\sof)/i
 
 // Regex for notes
-const noteRegex = /(?:\()(.*)(?:\))|(?:;\s)(.*)/
+const noteRegex = /(?:\()(.+)(?:\))|(?:;\s)(.*)/
 
 const noUnitRegex = /\d\s\s/
-const unitRegex = /\d\s/
 
 // For parsing LDJSON
 function ldjson(ld){
@@ -20,7 +19,8 @@ function ldjson(ld){
         "version" : 1,
         "isTranslateable" : false,
         "ingredients" : [],
-        "instructions" : []
+        "instructions" : [],
+        "imported" : Date.now()
     }
 
     // Check and add to recipe
@@ -39,19 +39,6 @@ function ldjson(ld){
     for (let i in ld["@graph"]) {
         let section = ld["@graph"][i]
 
-        // Test if it's the article section
-        if (section["@type"] == "Article"){
-
-            // Check for keywords
-            checkAndAdd(section, "keywords")
-
-            // Check for language
-            checkAndAdd(section, "inLanguage", "language")
-
-            // Add image
-            checkAndAdd(section, "thumbnailUrl")
-
-        }
 
         // Test if it's the person section
         if (section["@type"] == "Person"){
@@ -64,15 +51,17 @@ function ldjson(ld){
         if (section["@type"] == "Recipe"){
 
             // Check for the recipe name
-            checkAndAdd(section, "name")
+            checkAndAdd(section, "name");
+            checkAndAdd(section, "description");
+
 
             // Check for the recipe category
-            checkAndAdd(section, "recipeCategory")
+            checkAndAdd(section, "recipeCategory");
 
             // Check for the recipe cuisine
-            checkAndAdd(section, "recipeCuisine")
+            checkAndAdd(section, "recipeCuisine");
 
-            if (section.hasOwnProperty("recipeYield")) recipe['yeild'] = section['recipeYield'][0]
+            if (section.hasOwnProperty("recipeYield")) recipe['yeild'] = section['recipeYield'][1]
 
 
             checkAndAdd(section, "performTime")
@@ -108,6 +97,40 @@ function ldjson(ld){
             }
         }
 
+        // Test if it's the article section
+        if (section["@type"] == "Article"){
+
+            // Check for keywords
+            checkAndAdd(section, "keywords")
+
+            // Check for language
+            checkAndAdd(section, "inLanguage", "language")
+
+        }
+
+        // Test if it's the webpage section
+        if (section["@type"] == "WebPage" || section["@type"].includes("WebPage")){
+
+            // Add the import url
+            checkAndAdd(section, "url", 'importUrl')
+
+        }
+
+        // Test if it's the image section
+        if (section["@type"] == "ImageObject"){
+
+            recipe['image'] = {}
+
+            if (section.hasOwnProperty("url")) recipe['image']['url'] = section['url']
+            if (section.hasOwnProperty("caption")) recipe['image']['caption'] = section['caption']
+            if (section.hasOwnProperty("width")) recipe['image']['width'] = section['width']
+            if (section.hasOwnProperty("height")) recipe['image']['height'] = section['height']
+        }
+        
+        
+        
+
+        
 
 
     }
@@ -137,6 +160,18 @@ function parseIngredients(ingredientPhrase){
     if (ingredientPhrase.split(' ').length == 1) {
         ingObj['ingredient'] = ingredientPhrase;
         return ingObj;
+    }
+
+
+    // Check if there are notes
+    if (noteRegex.test(ingredientPhrase)) {
+        // If there are, set the notes to the notes regex match and slice the ingredient
+        ingObj['notes'] = ingredientPhrase.match(noteRegex)[1] || ingredientPhrase.match(noteRegex)[2];
+
+        let startOfIngPhr   = ingredientPhrase.slice(0, ingredientPhrase.match(noteRegex)['index'])
+        let endOfIngPhr     = ingredientPhrase.slice(ingredientPhrase.match(noteRegex)['index'] + ingredientPhrase.match(noteRegex)[0].length)
+
+        ingredientPhrase = startOfIngPhr + endOfIngPhr
     }
 
     ////
@@ -187,8 +222,8 @@ function parseIngredients(ingredientPhrase){
     if (aOfRegex.test(ingredientPhrase)){
         const regexMatch = ingredientPhrase.match(aOfRegex)
         
-        // Set the amount to "A...of", and set the unit to the regex match
-        ingObj['amount'] = "A...of";
+        // Set the amount to "1", and set the unit to the regex match
+        ingObj['amount'] = "1";
         ingObj['unit'] = regexMatch[1]
         
         // Slice the ingredient phrase to just the ingredient and(?) notes
@@ -197,14 +232,7 @@ function parseIngredients(ingredientPhrase){
     }
     
     
-    
-    // Check if there are notes
-    if (noteRegex.test(ingredientPhrase)) {
-        // If there are, set the notes to the notes regex match and slice the ingredient
-        ingObj['notes'] = ingredientPhrase.match(noteRegex)[1] || ingredientPhrase.match(noteRegex)[2];
-
-        ingredientPhrase = ingredientPhrase.slice(0, ingredientPhrase.match(noteRegex)[0].length * -1)
-    }
+      
     
     // Set the ingredient to what remains of the phrase
     ingObj['ingredient'] = ingredientPhrase
