@@ -12,7 +12,11 @@ const noteRegex = /(?:\()(.+)(?:\))|(?:;\s)(.*)/
 
 const noUnitRegex = /\d\s\s/
 
-// For parsing LDJSON
+/**
+ * Parses LD+JSON
+ * @param  {JSON} ld LD+JSON Recipe Schema
+ * @return  {JSON} The formatted recpie
+ */
 function ldjson(ld){
     // Create empty recipe JSON
     let recipe = {
@@ -127,22 +131,16 @@ function ldjson(ld){
             if (section.hasOwnProperty("height")) recipe['image']['height'] = section['height']
         }
         
-        
-        
-
-        
-
-
     }
 
-
-
-
     return recipe
-
-
 }
-
+/**
+ * Splits an ingredient phrase in to multiple parts
+ * AMOUNT, UNIT, INGREDIENT, NOTES
+ * @param  {string} ingredientPhrase Ingredient phrase (i.e. "1 cup water; chilled")
+ * @return {JSON} Split ingredient phrase
+ */
 function parseIngredients(ingredientPhrase){
     // Create the empty ingredient onbject
     let ingObj = {
@@ -246,7 +244,11 @@ function parseIngredients(ingredientPhrase){
 
 
 
-
+/**
+ * Normalizes a given string
+ * @param  {string} str Input string
+ * @return  {string} Normalized string
+ */
 function normalizeText(str){
     // Normalize unicode fractions
     str = normalizeFraction(str)

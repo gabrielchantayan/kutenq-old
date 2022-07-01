@@ -3,25 +3,34 @@ import { logAxios, axiosStatus } from '../misc/logger.js';
 import { testAndFixURL } from './urlTools.js';
 import * as cheerio from 'cheerio';
 
-// Get website
-async function getWebpage(page) {
+
+/**
+ * Function to get a webpage from a given URL
+ * @param  {string} url The URL of the webpage to get
+ * @return  {string} The HTML of the webpage in a string 
+ */
+async function getWebpage(url) {
 
     // Parse the URL
-    let parsedURL = testAndFixURL(page)    
+    let parsedUrl = testAndFixURL(url)    
 
     // Axios request
-    const res = await axios.get(parsedURL);
+    const res = await axios.get(parsedUrl);
 
     // Return
     return res;
 }
 
 
-// Get Schemas
-async function getSchemas(page){
+/**
+ * Function to get LD+JSON schemas from a page
+ * @param  {string} url The URL of the webpage to get schemas from
+ * @return {JSON} The LD+JSON of the webpage
+ */
+async function getSchemas(url){
     
     // Get the webpage
-    const webpage = await getWebpage(page);
+    const webpage = await getWebpage(url);
 
     // Parse the webpage
     const $ = cheerio.load(webpage);

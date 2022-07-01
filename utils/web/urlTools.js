@@ -8,12 +8,21 @@
 const urlRegex = /^(http)(s?)(:\/\/)\b/gi
 
 
-// Test if a string is a URL
+/**
+ * Test if a string is a URL
+ * @param  {string} url
+ * @return  {boolean} TRUE if is url, FALSE if not
+ */
 function testIfURL(url){
     return urlRegex.test(url)
 }
 
-// Test if a string is a URL and if not, turn it in to one
+
+/**
+ * Test if a given string is a URL and if not, turn it in to one
+ * @param  {string} url
+ * @return  {string} 
+ */
 function testAndFixURL(url){
     return (testIfURL(url) ? url : `http://${url}`)
 }
