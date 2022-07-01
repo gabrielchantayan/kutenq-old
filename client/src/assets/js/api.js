@@ -1,9 +1,8 @@
 import axios from "axios";
 
-let host = window.location.hostname
+let host = window.location.host
 let protocol = window.location.protocol 
 
-let port = 3301
 // Base API call
 const baseURL = `${protocol}//${host}/api/`
 

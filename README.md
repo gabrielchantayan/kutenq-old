@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://raw.githubusercontent.com/gabrielchantayan/kutenq/main/kutenq/src/assets/image/typeface/kutenq-lat100.png">
+  <img src="https://raw.githubusercontent.com/gabrielchantayan/kutenq/main/client/src/assets/image/typeface/kutenq-lat100.png">
   <br>
   <!-- kutenq! -->
   <br>
@@ -13,6 +13,13 @@
     <a href="https://github.com/gabrielchantayan/kutenq/releases/"><img alt="GitHub stars" src="https://badgen.net/github/release/gabrielchantayan/kutenq"></a>
     <a href="https://trello.com/b/2nfM0yfo/kutenq-roadmap/"><img alt="GitHub stars" src="https://shields.io/badge/Trello-View%20Roadmap-informational?logo=trello&style=flat"></a>
 </p>
+
+<p align="center">
+    <a href="https://github.com/gabrielchantayan/kutenq/wiki">Documentation</a>
+</p>
+
+
+
 
 # What is kutenq!
 
@@ -27,9 +34,6 @@ With **kutenq!** recipes aren't stores as text, they're stored as individual com
 **kutenq** is a transliteration of the Armenian word, **կուտենք**. Depending on how it is used in a sentance, it can mean "let's eat" or "we will eat..."
 
 Both definitions are fitting for what **kutenq!** aspires to be.
-
-
-
 
 # License 
 The full text of the license is [availible here](https://github.com/gabrielchantayan/kutenq/blob/main/LICENSE.md).

@@ -14,6 +14,8 @@
     "node-fetch": "^3.2.6"
   },
   "devDependencies": {
+    "jsdoc": "^3.6.10",
+    "jsdoc-to-markdown": "^7.1.1",
     "nodemon": "^2.0.16",
     "xlsx": "^0.18.5"
   },
@@ -21,6 +23,8 @@
     "dev-server": "nodemon -r dotenv/config --trace-warnings server.js dotenv_config_path=./.env.dev -e js",
     "dev-client": "npm start --prefix client",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
+    "jsdoc": "jsdoc -c ./jsdoc.json -r ./",
+    "docs": "jsdoc2md -f **/*.js > api.md",
     "exportExcel": "node ./tools/convertExcelToTXT.js",
     "genErrorJSON": "node ./tools/generateFiles/generate.js errorJSON",
     "genErrorMD": "node ./tools/generateFiles/generate.js errorMD",
