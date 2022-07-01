@@ -19,6 +19,7 @@ function main () {
 
     // Listen to API routes
     app.use('/api/recipe', routes.recipe);
+    app.use('/api/locale', routes.locale);
 
     // Open up on port XXXX
     app.listen(port, () => {

@@ -19,9 +19,37 @@
         "getLDJSONfromURL": {
             "name": "Gets LD JSON",
             "desc": "Gets LD JSON from a url",
-            "method": "",
+            "method": "GET",
             "function": "getLDJSONfromURL",
             "params": "url*",
+            "reqArgs": ""
+        }
+    },
+    "account": {
+        "login": {
+            "name": "Login",
+            "desc": "Logs a user in with a username and password",
+            "method": "POST",
+            "function": "login",
+            "params": "",
+            "reqArgs": ""
+        },
+        "register": {
+            "name": "Register",
+            "desc": "Registers a user",
+            "method": "POST",
+            "function": "register",
+            "params": "",
+            "reqArgs": ""
+        }
+    },
+    "locale": {
+        "getLocale": {
+            "name": "Get Locale",
+            "desc": "Gets a locale file. Returns 'en' if none specified",
+            "method": "GET",
+            "function": "getLocale",
+            "params": "locale",
             "reqArgs": ""
         }
     }

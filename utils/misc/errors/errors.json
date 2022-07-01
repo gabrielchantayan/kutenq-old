@@ -39,6 +39,13 @@
                 "type",
                 "recipetype"
             ]
+        },
+        "2": {
+            "name": "Could not get recipe from URL",
+            "notes": "The scraper was unable to get a recipe from the URL provided. Check that the link contains a recipe.",
+            "keywords": [
+                ""
+            ]
         }
     },
     "axios": {

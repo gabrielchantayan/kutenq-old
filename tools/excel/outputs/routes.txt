@@ -2,4 +2,7 @@ Routes
 Controller	Name	Function	Params	Function req args	Description	Method
 recipe	Get Recipe	getRecipe	recipeID		Gets a recipe by ID	GET
 recipe	Parse Recipe	parseRecipe	type, data*		Parses a recipe from data by type	GET
-recipe	Gets LD JSON	getLDJSONfromURL	url*		Gets LD JSON from a url	
+recipe	Gets LD JSON	getLDJSONfromURL	url*		Gets LD JSON from a url	GET
+account	Login	login			Logs a user in with a username and password	POST
+account	Register	register			Registers a user	POST
+locale	Get Locale	getLocale	locale		Gets a locale file. Returns 'en' if none specified	GET

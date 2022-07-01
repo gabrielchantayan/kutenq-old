@@ -73,7 +73,7 @@ async function generateRoutes() {
             text += 
 `\n\n// ${routeData['desc']}
 router.get('/${route}${makePaths(routeData['params'])}', (req, res) => {
-    return recipe.${route}(${makeParams(routeData['reqArgs'])}, res)
+    return ${contr}.${route}(${makeParams(routeData['reqArgs'])}, res)
 });`
 
         }

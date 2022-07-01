@@ -1,3 +1,6 @@
 [submodule "kutenq-backend.wiki"]
 	path = kutenq-backend.wiki
 	url = https://github.com/gabrielchantayan/kutenq-backend.wiki.git
+[submodule "kutenq.wiki"]
+	path = kutenq.wiki
+	url = git://github.com/gabrielchantayan/kutenq.wiki.git

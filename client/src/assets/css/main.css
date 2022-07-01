@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@font-face {
+  font-family: 'Playfair Display';
+  src: url("fonts/Playfair Display/PlayfairDisplay-VF.ttf") format("truetype-variations");
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url("fonts/Playfair Display/PlayfairDisplay-Italic-VF.ttf") format("truetype-variations");
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: italic;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fefefe;
+}
+
+.noselect, header, .logo {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  moz-box-sizing: inherit;
+  webkit-box-sizing: inherit;
+}
+
+:root {
+  module-spacing: 3vh;
+}
+
+h1, h2 {
+  font-family: "Playfair Display", Georgia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", serif;
+  color: #040F0F;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 20px 0px 10px 0px;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 5vh;
+    margin: 2vh 0px 5px 0px;
+  }
+}
+
+h1.recipeTitle {
+  margin: calc(((2.5em + 2.5vw)/4) * -1) 0px 10px 0px;
+  font-size: calc(2em + 3vw);
+  font-style: italic;
+}
+
+@media screen and (max-width: 600px) {
+  h1.recipeTitle {
+    font-size: 6vh;
+  }
+}
+
+h1.recipeTitle span {
+  background-color: #fefefe;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px;
+}
+
+p, ul {
+  -webkit-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
+  font-size: 1.25em;
+  font-family: Georgia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", serif;
+}
+
+@media screen and (max-width: 600px) {
+  p, ul {
+    font-size: 1.2em;
+  }
+}
+
+hr {
+  width: 100%;
+  color: #5a7373;
+}
+
+header {
+  padding: 10px 20px;
+  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+header .logo {
+  height: 3.5em;
+}
+
+ul.ingredientList {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+ul.ingredientList .note {
+  color: #5a7373;
+}
+
+.subtitle {
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  margin: -10px 0px 40px 0px;
+  text-transform: uppercase;
+  color: #1b6b2f;
+}
+
+@media screen and (max-width: 600px) {
+  .subtitle {
+    font-size: 2vh;
+    margin: -10px 0px 20px 0px;
+  }
+}
+
+.backgroundImage {
+  z-index: -1;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.backgroundImage div {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  background-color: #5a7373;
+  height: 16em;
+  max-height: 16em;
+  z-index: -2;
+  width: 105%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -10px;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+#mainContent {
+  width: 65%;
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  #mainContent {
+    width: 80%;
+  }
+}
+
+#loginPage, #registerPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+#loginCard, #registerCard {
+  width: 40%;
+  margin-bottom: 20vh;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fefefe;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #2BA84A 0px 3px 0px inset;
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #2BA84A 0px 3px 0px inset;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  #loginCard, #registerCard {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  #loginCard, #registerCard {
+    width: 480px;
+  }
+}
+
+#loginCard .logo, #registerCard .logo {
+  margin: 20px 0px 10px 0px;
+  height: 6em;
+}
+
+@media screen and (max-width: 600px) {
+  #loginCard .logo, #registerCard .logo {
+    height: 4em;
+  }
+}
+
+#loginCard hr, #registerCard hr {
+  color: #ccc;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  #loginCard hr, #registerCard hr {
+    margin-top: 0px;
+  }
+}
+
+#loginCard h1, #registerCard h1 {
+  margin-top: 0px;
+}
+
+#fullBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -99999;
+  overflow: hidden;
+}
+
+#fullBackground div {
+  height: 105%;
+  background-color: #5a7373;
+  width: 105%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -20px;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+
+@media screen and (max-width: 600px) {
+  #fullBackground div {
+    width: 120%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

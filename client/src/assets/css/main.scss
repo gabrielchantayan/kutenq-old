@@ -1,0 +1,326 @@
+// ASCII Generator https://fsymbols.com/generators/carty/
+
+// ███████╗░█████╗░███╗░░██╗████████╗░██████╗
+// ██╔════╝██╔══██╗████╗░██║╚══██╔══╝██╔════╝
+// █████╗░░██║░░██║██╔██╗██║░░░██║░░░╚█████╗░
+// ██╔══╝░░██║░░██║██║╚████║░░░██║░░░░╚═══██╗
+// ██║░░░░░╚█████╔╝██║░╚███║░░░██║░░░██████╔╝
+// ╚═╝░░░░░░╚════╝░╚═╝░░╚══╝░░░╚═╝░░░╚═════╝░
+
+
+// █ █▀▄▀█ █▀█ █▀█ █▀█ ▀█▀ █▀
+// █ █░▀░█ █▀▀ █▄█ █▀▄ ░█░ ▄█
+// Import Lato light, normal, and bold
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+// Import Playfair Display Regular, Reg Italic, Bold, and Bold Italic
+// @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// Import Playfair Display variable fonts
+// Regular
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/Playfair Display/PlayfairDisplay-VF.ttf') format("truetype-variations");
+    font-weight: 125 950;
+    font-stretch: 75% 125%;
+    font-style: normal;
+}
+// Italic
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/Playfair Display/PlayfairDisplay-Italic-VF.ttf') format("truetype-variations");
+    font-weight: 125 950;
+    font-stretch: 75% 125%;
+    font-style: italic;
+}
+
+
+// █▀▀ █▀█ █▄░█ ▀█▀   █▀ ▀█▀ ▄▀█ █▀▀ █▄▀ █▀
+// █▀░ █▄█ █░▀█ ░█░   ▄█ ░█░ █▀█ █▄▄ █░█ ▄█
+
+// Serif stacks
+// Georgia-based 
+$serif: Georgia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", serif;
+// Times New Roman-based 
+// $serif: "Times New Roman", "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, serif;
+
+// Display
+$display: "Playfair Display", Georgia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", serif;
+
+// Side
+$side: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+
+
+
+// ░█████╗░░█████╗░██╗░░░░░░█████╗░██████╗░░██████╗
+// ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔════╝
+// ██║░░╚═╝██║░░██║██║░░░░░██║░░██║██████╔╝╚█████╗░
+// ██║░░██╗██║░░██║██║░░░░░██║░░██║██╔══██╗░╚═══██╗
+// ╚█████╔╝╚█████╔╝███████╗╚█████╔╝██║░░██║██████╔╝
+// ░╚════╝░░╚════╝░╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
+
+$mainColor: #040F0F;
+$accentColor: #2D3A3A;
+$backgroundColor: #fefefe;
+$accentColor2: #2BA84A;
+$accentColor3: #248232;
+
+$accentColorLight: lighten($accentColor, 20%);
+$accentColor2Light: lighten($accentColor2, 20%);
+$accentColor3Light: lighten($accentColor3, 20%);
+
+$accentColorDark: darken($accentColor, 15%);
+$accentColor2Dark: darken($accentColor2, 15%);
+$accentColor3Dark: darken($accentColor3, 15%);
+
+
+
+$smallWidth: 600px;
+
+
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $backgroundColor;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    moz-box-sizing: inherit;
+    webkit-box-sizing: inherit;
+}
+
+:root {
+    module-spacing: 3vh;
+}
+
+h1, h2 {
+    font-family: $display;
+    color: $mainColor
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 20px 0px 10px 0px;
+
+    @media screen and (max-width: $smallWidth) {
+        font-size: 5vh;
+        margin: 2vh 0px 5px 0px;
+    }
+    
+    &.recipeTitle {
+        margin: calc(((2.5em + 2.5vw)/4) * -1) 0px 10px 0px;
+        font-size: calc(2em + 3vw);
+        font-style: italic;
+        
+        @media screen and (max-width: $smallWidth) {
+            font-size: 6vh;
+        }
+
+        span {
+            background-color: $backgroundColor;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px ;
+        }
+    }
+}
+
+p, ul{
+    -moz-font-feature-settings: "lnum";
+    -webkit-font-feature-settings: "lnum";
+    font-feature-settings: "lnum";
+    font-size: 1.25em;
+    font-family: $serif;
+
+    @media screen and (max-width: $smallWidth) {
+        font-size: 1.2em;
+    }
+}
+
+hr {
+    width: 100%;
+    color: $accentColorLight;
+}
+
+
+header {
+    @extend .noselect;
+    
+    padding: 10px 20px;
+
+    .logo {
+        height: 3.5em;
+    }
+
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+
+ul {
+
+    
+
+    &.ingredientList {
+
+        margin: 0;
+        padding: 0;
+        list-style-position: inside;
+
+        .note {
+            color: $accentColorLight
+        }
+    }
+
+}
+
+
+.logo {
+    @extend .noselect;
+}
+
+.subtitle {
+    font-family: $side;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+    margin: -10px 0px 40px 0px;
+    text-transform: uppercase;
+    color: $accentColor2Dark;
+
+    @media screen and (max-width: $smallWidth) {
+        font-size: 2vh;
+        margin: -10px 0px 20px 0px;
+    }
+}
+
+
+.backgroundImage {
+    z-index: -1;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+
+    div {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+        background-color: $accentColorLight;
+        height: 16em;
+        max-height: 16em;
+        z-index: -2;
+        width: 105%;
+        // background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: -10px;
+        filter: blur(5px);
+
+    }
+}
+
+
+
+#mainContent {
+    width: 65%;
+    margin: auto;
+
+    @media screen and (max-width: $smallWidth) {
+        width: 80%;
+    }
+
+    
+}
+
+#loginPage, #registerPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#loginCard, #registerCard {
+    width: 40%;
+    margin-bottom: 20vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: $backgroundColor;
+    // box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    // box-shadow: $accentColor2 0px 0px 0px 2px, $accentColor3Dark 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, $accentColor2 0px 3px 0px inset;
+    border-radius: 10px;
+
+    @media screen and (max-width: $smallWidth) {
+        width: 80%;
+    }
+
+    @media screen and (min-width: $smallWidth) and (max-width: 1200px) {
+        width: 480px;
+    }
+
+    .logo {
+        margin: 20px 0px 10px 0px;
+        height: 6em;
+
+        @media screen and (max-width: $smallWidth) {
+            height: 4em;
+        }
+    }
+
+    hr {
+        color: #ccc;
+        margin-top: -10px;
+        margin-bottom: 20px;
+
+        @media screen and (max-width: $smallWidth) {
+            margin-top: 0px;
+        }
+    }
+
+    h1 {
+        margin-top: 0px;
+    }
+}
+
+#fullBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -99999;
+    // margin: -20px 0px;
+    overflow: hidden;
+
+
+    div {
+        height: 105%;
+        background-color: $accentColorLight;
+        width: 105%;
+        // background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: -20px;
+        filter: blur(10px);
+
+        @media screen and (max-width: $smallWidth) {
+            width: 120%;
+        }
+    }
+}
