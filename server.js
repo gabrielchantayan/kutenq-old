@@ -1,6 +1,7 @@
 // Prereqs
 import express from "express"           // Webserver
 import routes from './routes/index.js'  // API Routes
+import cors from 'cors'
 
 // Set up on port 3301
 const port = process.env.PORT || 3301;
@@ -13,6 +14,18 @@ function main () {
     const app = express();
 
     // Middleware stuffs
+
+    app.use(cors());
+    app.options('*', cors())
+
+
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
+
     app.use(express.json());
     app.use(express.static('public'))
     app.use(express.urlencoded({ extended: true }));

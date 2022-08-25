@@ -1,0 +1,14 @@
+{
+    "account": {
+        "register": "Register ye account",
+        "login": "Log yeself in",
+        "username": "Your pirate name",
+        "email": "Your pirate mail",
+        "password": "The secret code",
+        "passwordTooShort": "Oi laddie, your code needs to be longer than 8 letters",
+        "usernameAlreadyRegistered": "Oi laddie, don't go stealing another pirate's name",
+        "emailAlreadyRegistered": "Oi laddie, don't go stealing another pirate's mail"
+    },
+    "version": 1,
+    "langName": "Pirate (PR)"
+}

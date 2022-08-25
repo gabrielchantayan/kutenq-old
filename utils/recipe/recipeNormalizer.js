@@ -46,7 +46,6 @@ function ldjson(ld){
 
         // Test if it's the person section
         if (section["@type"] == "Person"){
-
             // Check for the Author's name
             checkAndAdd(section, "name", "author")
         }
@@ -58,7 +57,6 @@ function ldjson(ld){
             checkAndAdd(section, "name");
             checkAndAdd(section, "description");
 
-
             // Check for the recipe category
             checkAndAdd(section, "recipeCategory");
 
@@ -66,7 +64,6 @@ function ldjson(ld){
             checkAndAdd(section, "recipeCuisine");
 
             if (section.hasOwnProperty("recipeYield")) recipe['yeild'] = section['recipeYield'][1]
-
 
             checkAndAdd(section, "performTime")
             checkAndAdd(section, "prepTime")

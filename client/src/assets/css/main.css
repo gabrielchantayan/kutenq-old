@@ -15,6 +15,11 @@
   font-style: italic;
 }
 
+.boxBorder, .btn, #loginCard, #registerCard {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #2BA84A 0px 3px 0px inset;
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #2BA84A 0px 3px 0px inset;
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -64,7 +69,6 @@ h1 {
 
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 5vh;
     margin: 2vh 0px 5px 0px;
   }
 }
@@ -87,17 +91,11 @@ h1.recipeTitle span {
           box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px;
 }
 
-p, ul {
+p, ul, label {
   -webkit-font-feature-settings: "lnum";
   font-feature-settings: "lnum";
   font-size: 1.25em;
   font-family: Georgia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", serif;
-}
-
-@media screen and (max-width: 600px) {
-  p, ul {
-    font-size: 1.2em;
-  }
 }
 
 hr {
@@ -123,6 +121,52 @@ ul.ingredientList {
 
 ul.ingredientList .note {
   color: #5a7373;
+}
+
+.btn {
+  background-color: #fefefe;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  color: #040F0F;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #2BA84A;
+  color: #fefefe;
+}
+
+form.rows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5em;
+  padding-top: 0px;
+}
+
+form.rows label {
+  margin-top: 1em;
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+form.rows input {
+  height: 2.1875em;
+  font-size: 1.25em;
+  padding-left: 10px;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+form.rows button {
+  margin-top: 2em;
 }
 
 .subtitle {
@@ -189,7 +233,7 @@ ul.ingredientList .note {
 }
 
 #loginCard, #registerCard {
-  width: 40%;
+  width: 576px;
   margin-bottom: 20vh;
   text-align: center;
   display: -webkit-box;
@@ -200,8 +244,6 @@ ul.ingredientList .note {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #fefefe;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #2BA84A 0px 3px 0px inset;
-          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, #2BA84A 0px 3px 0px inset;
   border-radius: 10px;
 }
 

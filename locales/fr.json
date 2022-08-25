@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "langName": "Français",
+    "account": {
+        "register": "Registre",
+        "login": "Connexion",
+        "username": "Nom d'utilisateur",
+        "email": "E-mail",
+        "passwordTooShort": "Désolé, votre mot de passe doit comporter plus de 8 caractères",
+        "usernameAlreadyRegistered": "Désolé, un compte avec ce nom d'utilisateur est déjà enregistré",
+        "emailAlreadyRegistered": "Désolé, un compte avec cet e-mail est déjà enregistré",
+        "password": "Mot de passe"
+    }
+}

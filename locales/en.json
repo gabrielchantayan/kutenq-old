@@ -11,5 +11,12 @@
         "passwordTooShort" : "Sorry, your password needs to be longer than 8 characters",
         "usernameAlreadyRegistered" : "Sorry, an account with that username is already registered",
         "emailAlreadyRegistered" : "Sorry, an account with that email is already registered"
+    },
+    "text" : {
+        "submit" : "Submit"
+    },
+    "errors" : {
+        "enterAllFields" : "Please enter all the fields",
+        "enterAllRequiredFields" : "Please enter all the required fields"
     }
 }

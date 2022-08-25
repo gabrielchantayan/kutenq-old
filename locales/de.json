@@ -1,0 +1,14 @@
+{
+    "account": {
+        "username": "Benutzername",
+        "email": "E-Mailadresse",
+        "password": "Passwort",
+        "passwordTooShort": "Ihr Passwort muss leider länger als 8 Zeichen sein",
+        "usernameAlreadyRegistered": "Entschuldigung, ein Konto mit diesem Benutzernamen ist bereits registriert",
+        "emailAlreadyRegistered": "Entschuldigung, ein Konto mit dieser E-Mail-Adresse ist bereits registriert",
+        "register": "Registrieren",
+        "login": "Anmelden"
+    },
+    "version": 1,
+    "langName": "Deutsch"
+}

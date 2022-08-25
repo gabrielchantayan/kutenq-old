@@ -1,0 +1,7 @@
+{
+    "dbLogging": {
+        "createTable" : true,
+        "queryNotif" : true,
+        "queryResult" : true
+    }
+}

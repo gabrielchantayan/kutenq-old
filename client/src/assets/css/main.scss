@@ -1,5 +1,11 @@
 // ASCII Generator https://fsymbols.com/generators/carty/
 
+
+
+// Screen widths
+$smallWidth: 600px;
+
+
 // ███████╗░█████╗░███╗░░██╗████████╗░██████╗
 // ██╔════╝██╔══██╗████╗░██║╚══██╔══╝██╔════╝
 // █████╗░░██║░░██║██╔██╗██║░░░██║░░░╚█████╗░
@@ -52,6 +58,20 @@ $side: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
 
+// ▀█▀ █▀▀ ▀▄▀ ▀█▀   █▀ █ ▀█ █▀▀ █▀
+// ░█░ ██▄ █░█ ░█░   ▄█ █ █▄ ██▄ ▄█
+
+$headingTextSize: 3em;
+$largeTextSize: 2em;
+$normalTextSize: 1.25em;
+$smallTextSize: 1em;
+
+// For small screens
+@media screen and (max-width: $smallWidth) {
+    $headingTextSize: 5vw;
+    $normalTextSize: 1.2em;
+}
+
 
 // ░█████╗░░█████╗░██╗░░░░░░█████╗░██████╗░░██████╗
 // ██╔══██╗██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔════╝
@@ -75,10 +95,11 @@ $accentColor2Dark: darken($accentColor2, 15%);
 $accentColor3Dark: darken($accentColor3, 15%);
 
 
-
-$smallWidth: 600px;
-
-
+.boxBorder {
+    // box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    // box-shadow: $accentColor2 0px 0px 0px 2px, $accentColor3Dark 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, $accentColor2 0px 3px 0px inset;
+}
 
 html {
     box-sizing: border-box;
@@ -115,12 +136,11 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: $headingTextSize;
     font-weight: bold;
     margin: 20px 0px 10px 0px;
 
     @media screen and (max-width: $smallWidth) {
-        font-size: 5vh;
         margin: 2vh 0px 5px 0px;
     }
     
@@ -140,16 +160,13 @@ h1 {
     }
 }
 
-p, ul{
+p, ul, label{
     -moz-font-feature-settings: "lnum";
     -webkit-font-feature-settings: "lnum";
     font-feature-settings: "lnum";
     font-size: 1.25em;
     font-family: $serif;
 
-    @media screen and (max-width: $smallWidth) {
-        font-size: 1.2em;
-    }
 }
 
 hr {
@@ -187,6 +204,56 @@ ul {
         }
     }
 
+}
+
+
+// Divs and such
+
+.btn {
+    @extend .boxBorder;
+    background-color: $backgroundColor;
+    transition-duration: 0.2s;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    color: $mainColor;
+    border-radius: 4px;
+
+
+    &:hover {
+        background-color: $accentColor2;
+        color: $backgroundColor;
+    }
+}
+
+
+// Forms
+
+form.rows {
+
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    padding-top: 0px; 
+
+    label {
+        margin-top: 1em;
+        margin-bottom: 2px;
+        text-align: left;
+        // font-size: $smallTextSize;
+    }
+
+    input {
+        height: $normalTextSize * 1.75;
+        font-size: $normalTextSize;
+        padding-left: 10px;
+        font-family: $side;
+    }
+
+    button {
+        margin-top: 2em;
+    }
 }
 
 
@@ -254,15 +321,13 @@ ul {
 
 
 #loginCard, #registerCard {
-    width: 40%;
+    @extend .boxBorder;
+    width: 576px;
     margin-bottom: 20vh;
     text-align: center;
     display: flex;
     flex-direction: column;
     background-color: $backgroundColor;
-    // box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-    // box-shadow: $accentColor2 0px 0px 0px 2px, $accentColor3Dark 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, $accentColor2 0px 3px 0px inset;
     border-radius: 10px;
 
     @media screen and (max-width: $smallWidth) {

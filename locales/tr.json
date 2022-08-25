@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "langName": "Türkçe",
+    "account": {
+        "register": "Üye Ol",
+        "login": "Giriş Yap",
+        "username": "Kullanıcı adı",
+        "email": "E-posta",
+        "password": "Parola",
+        "passwordTooShort": "Üzgünüz, şifreniz 8 karakterden uzun olmalıdır",
+        "usernameAlreadyRegistered": "Üzgünüz, bu kullanıcı adına sahip bir hesap zaten kayıtlı",
+        "emailAlreadyRegistered": "Üzgünüz, bu e-postaya sahip bir hesap zaten kayıtlı"
+    }
+}

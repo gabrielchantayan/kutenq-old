@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "langName": "Italiano",
+    "account": {
+        "register": "Registra",
+        "login": "Accedi",
+        "username": "Nome utente",
+        "email": "E-mail",
+        "password": "Password",
+        "passwordTooShort": "Siamo spiacenti, la password deve essere più lunga di 8 caratteri",
+        "usernameAlreadyRegistered": "Siamo spiacenti, un account con quel nome utente è già registrato",
+        "emailAlreadyRegistered": "Siamo spiacenti, un account con quell' email è già registrato"
+    }
+}
